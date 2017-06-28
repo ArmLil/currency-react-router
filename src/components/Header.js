@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { generator } from 'uigradients';
 
 const Head = styled.div`
- ${generator({gradient: 'haikus'})};
+ ${generator({ gradient: 'haikus' })};
    border: 1px solid brown;
    margin 0;
    padding: 10px;
@@ -19,9 +19,9 @@ const Head = styled.div`
 `;
 const shadow = `-5px -5px 2px hsla(8, 71%, 50%, 0.7),
              -3px -3px 2px hsla(8, 71%, 50%, 0.7),
-             -1px -1px 2px hsla(8, 71%, 50%, 0.7)`
+             -1px -1px 2px hsla(8, 71%, 50%, 0.7)`;
 
- const Title = styled.div`
+const Title = styled.div`
     cursor:pointer;
     text-shadow: ${shadow};
     border: 1px solid hsla(8, 71%, 50%, 0.7);
@@ -39,25 +39,30 @@ const shadow = `-5px -5px 2px hsla(8, 71%, 50%, 0.7),
      }
  `;
 
-const Header = () => (
+const Header = () =>
   <Head>
-    <h1 style = {{paddingRight: '80px',
-      fontSize: 'calc(18px + 0.9vw)',
-      color:'hsla(148, 31%, 10%, 0.79)',
-      textShadow: `${shadow}`}}>
-    Currency Conversion Rates</h1>
+    <h1
+      style={{
+        paddingRight: '80px',
+        fontSize: 'calc(18px + 0.9vw)',
+        color: 'hsla(148, 31%, 10%, 0.79)',
+        textShadow: `${shadow}`
+      }}>
+      Currency Conversion Rates
+    </h1>
     <Title>
-      <Link to="/usd" style={{color: 'black'}}
-        name={'usd'}> USD-$ </Link> </Title>
+      <Link to="/usd" style={{ color: 'black' }} name={'usd'}>
+        {' '}USD-${' '}
+      </Link>{' '}
+    </Title>
     <Title>
-      <Link to={"/eur"} style={{color: 'black'}}
-      name={'eur'}>EUR-€ </Link></Title>
+      <Link to={'/eur'} style={{ color: 'black' }} name={'eur'}>EUR-€ </Link>
+    </Title>
     <Title>
-      <Link to="/jpy" style={{color: 'black'}}
-      name={'jpy'}> JPY-¥ </Link></Title>
+      <Link to="/jpy" style={{ color: 'black' }} name={'jpy'}> JPY-¥ </Link>
+    </Title>
     <Title>
-      <Link to="/gbr" style={{color: 'black'}}
-      name={'gbp'}> GBP-£ </Link></Title>
-  </Head>
-)
+      <Link to="/gbr" style={{ color: 'black' }} name={'gbp'}> GBP-£ </Link>
+    </Title>
+  </Head>;
 export default Header;

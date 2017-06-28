@@ -48,33 +48,39 @@ const Foot = styled.div`
   }
 `;
 
- const LeftChild = ({props}) => {
-   const arr_of_keys = Object.keys(props.rates);
-   const arr_of_values = Object.values(props.rates);
-   const n = arr_of_keys.length;
+const LeftChild = ({ props }) => {
+  const arr_of_keys = Object.keys(props.rates);
+  const arr_of_values = Object.values(props.rates);
+  const n = arr_of_keys.length;
 
-   const Obj_arr = () => {
-     let obj_arr = []; let k = 0;
-     for (let i = 0; i < n; ++i){
-       obj_arr.push(`${arr_of_keys[i]} : ${arr_of_values[i]}`);
-     }
-     return obj_arr.map(e =>
-       <Row key={e}
-          style = {{backgroundColor:`
-            hsl(240, 100%, ${90 + (k++)/2}%)
-            `}}>{e}
-       </Row>);
-     }
+  const Obj_arr = () => {
+    let obj_arr = [];
+    let k = 0;
+    for (let i = 0; i < n; ++i) {
+      obj_arr.push(`${arr_of_keys[i]} : ${arr_of_values[i]}`);
+    }
+    return obj_arr.map(e =>
+      <Row
+        key={e}
+        style={{
+          backgroundColor: `
+            hsl(240, 100%, ${90 + k++ / 2}%)
+            `
+        }}>
+        {e}
+      </Row>
+    );
+  };
 
-   return(
-     <Foot>
-       <Form>
-         <Row style ={{fontSize :'20px', color : 'black'}}>{props.base}</Row>
-         <Row style ={{fontSize :'20px', color : 'black'}}>{props.date}</Row>
+  return (
+    <Foot>
+      <Form>
+        <Row style={{ fontSize: '20px', color: 'black' }}>{props.base}</Row>
+        <Row style={{ fontSize: '20px', color: 'black' }}>{props.date}</Row>
         {Obj_arr()}
-       </Form>
-     </Foot>
-   );
- }
+      </Form>
+    </Foot>
+  );
+};
 
-  export default LeftChild;
+export default LeftChild;
