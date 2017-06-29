@@ -19,12 +19,13 @@ const Border = styled.div`
     props.inner ? 'white' : generator({ gradient: 'timber' })};
 `;
 
+/*
+
 class Clock extends React.Component {
   constructor() {
     super();
     this.state = { date: new Date() };
   }
-
   componentDidMount = () => {
     this.timerID = setInterval(() => this.tick(), 1000);
   };
@@ -36,13 +37,25 @@ class Clock extends React.Component {
   tick() {
     this.setState({ date: new Date() });
   }
+*/
+
+class Clock extends React.Component {
+state = {
+time: new Date()
+}
+
+timerId = (() => {
+setTimeout(this.timer = () => {
+this.setState({time: new Date()});
+this.timerId = setTimeout(this.timer, 1000);
+},1000)})();
 
   render() {
     return (
       <div>
         <Border>
           <Border inner>
-            {this.state.date.toLocaleTimeString()}
+            {this.state.time.toLocaleTimeString()}
           </Border>
         </Border>
       </div>
