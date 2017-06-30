@@ -51,9 +51,7 @@ const Header = () =>
       Currency Conversion Rates
     </h1>
     <Title>
-      <Link to="/usd" style={{ color: 'black' }} name={'usd'}>
-        {' '}USD-${' '}
-      </Link>{' '}
+      <Link to="/usd" style={{ color: 'black' }} name={'usd'}>USD-$ </Link>
     </Title>
     <Title>
       <Link to={'/eur'} style={{ color: 'black' }} name={'eur'}>EUR-€ </Link>
@@ -62,7 +60,7 @@ const Header = () =>
       <Link to="/jpy" style={{ color: 'black' }} name={'jpy'}> JPY-¥ </Link>
     </Title>
     <Title>
-      <Link to="/gbr" style={{ color: 'black' }} name={'gbp'}> GBP-£ </Link>
+      <Link to="/gbp" style={{ color: 'black' }} name={'gbp'}> GBP-£ </Link>
     </Title>
   </Head>;
 export default Header;

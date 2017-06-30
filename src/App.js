@@ -97,7 +97,7 @@ componentWillMount = () => {
             <Route exact path={'/usd'} render={()=> <LeftChild props={this.state.usd}/>}/>
             <Route exact path={'/eur'} render={()=> <LeftChild props={this.state.eur}/>}/>
             <Route exact path={'/jpy'} render={()=> <LeftChild props={this.state.jpy}/>}/>
-            <Route exact path={'/gbr'} render={()=> <LeftChild props={this.state.gbp}/>}/>
+            <Route exact path={'/gbp'} render={()=> <LeftChild props={this.state.gbp}/>}/>
             <RightChildComp load={() => this.loadData()}
               t={this.state.timer.toLocaleString()}
               subm={sbmCycle => this.setCycle(sbmCycle)}
