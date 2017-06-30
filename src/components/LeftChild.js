@@ -65,8 +65,7 @@ const LeftChild = ({ props }) => {
         style={{
           backgroundColor: `
             hsl(240, 100%, ${90 + k++ / 2}%)
-            `
-        }}>
+            `}}>
         {e}
       </Row>
     );
