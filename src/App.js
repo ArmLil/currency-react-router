@@ -13,7 +13,6 @@ const initial = `
 
 const Container = styled.div`
    ${initial};
-
     border: 1px solid #EFADA0;
     flex: 1;
     flex-direction: column;
@@ -21,6 +20,7 @@ const Container = styled.div`
 
 const Body = styled.div`
     ${initial};
+    flex:1;
     border: 1px solid brown;
  `;
 
