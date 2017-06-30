@@ -95,7 +95,6 @@ const InputStyle = styled.input`
   &:hover {
    box-shadow: inset 1px 1px 5px #000000;
    font-size: 18px;
-   width: 100px;
    color: blue;
   }
 `;
@@ -108,7 +107,7 @@ const _icon = {
 
 class RightChildComp extends React.Component {
   state = {
-    initial_value: 60,
+    initial_value: 5,
     img: img_url
   };
 
@@ -122,6 +121,7 @@ class RightChildComp extends React.Component {
 
   submitHandler = () => {
     const cycle = this.state.initial_value;
+    //this.props.load();
     //console.log(cycle);
     this.props.subm(cycle);
   };
@@ -132,7 +132,7 @@ class RightChildComp extends React.Component {
         <Div>
           <InpContainer>
             <Button onClick={this.clickHandler}>Get Current Rates</Button>
-            <P>{this.props.t}</P>
+            <P>Updated {this.props.t}</P>
             <Ranger type={'range'}
               min={10} max={86400}
               value={this.state.initial_value}

@@ -13,6 +13,7 @@ const initial = `
 
 const Container = styled.div`
    ${initial};
+
     border: 1px solid #EFADA0;
     flex: 1;
     flex-direction: column;
@@ -30,48 +31,51 @@ class App extends Component {
     jpy: { base: '', date: '', rates: {} },
     gbp: { base: '', date: '', rates: {} },
     timer: new Date(),
-    cycle: 60*60*1000
+    cycle: 5*60*1000
   };
 
-  componentWillMount = () => {
-    this.loadData();
-  }
+componentWillMount = () => {
+  this.loadData();
+}
 
   componentDidMount = () => {
-      this.timerId();
+    this.timerId();
   };
+
 
  setCycle = (sbmCycle)=> {
    console.log(sbmCycle);
-   this.setState({cycle: sbmCycle * 60 * 1000});
+   this.setState({cycle: sbmCycle*'60000'});
+   this.loadData();
  }
+
 
  timerId = () => {
   setTimeout(this.cycleId = () => {
   console.log(this.state.cycle);
   this.loadData();
   this.timerId = setTimeout(this.cycleId, this.state.cycle);
-},this.state.cycle)};
+}, this.state.cycle)};
 
-loadData = async () => {
-  console.log('loaded............');
-  this.setState({ timer: new Date()});
-  try {
-    const fetchedUSD = await this.fetch('USD');
-    const fetchedEUR = await this.fetch('EUR');
-    const fetchedJPY = await this.fetch('JPY');
-    const fetchedGBP = await this.fetch('GBP');
-    this.setState({
-      usd: fetchedUSD,
-      eur: fetchedEUR,
-      jpy: fetchedJPY,
-      gbp: fetchedGBP
-    });
-    //console.log(this.state);
-  } catch (e) {
-    console.log(e);
-  }
-};
+  loadData = async () => {
+    console.log('loaded............');
+    this.setState({ timer: new Date()});
+    try {
+      const fetchedUSD = await this.fetch('USD');
+      const fetchedEUR = await this.fetch('EUR');
+      const fetchedJPY = await this.fetch('JPY');
+      const fetchedGBP = await this.fetch('GBP');
+      this.setState({
+        usd: fetchedUSD,
+        eur: fetchedEUR,
+        jpy: fetchedJPY,
+        gbp: fetchedGBP
+      });
+      //console.log(this.state);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   fetch = async p => {
     try {
@@ -89,22 +93,11 @@ loadData = async () => {
         <Container>
           <Header />
           <Body>
-            <Route exac path={'/'}
-              render={() => <LeftChild props={this.state.usd} />}
-            />
-            <Route exact path={'/usd'}
-              render={() => <LeftChild props={this.state.usd} />}
-            />
-            <Route
-              exact path={'/eur'}
-              render={() => <LeftChild props={this.state.eur} />}
-            />
-            <Route exact path={'/jpy'}
-              render={() => <LeftChild props={this.state.jpy} />}
-            />
-            <Route exact path={'/gbr'}
-              render={() => <LeftChild props={this.state.gbp} />}
-            />
+            <Route exact path={'/'} render={()=> <LeftChild props={this.state.usd}/>}/>
+            <Route exact path={'/usd'} render={()=> <LeftChild props={this.state.usd}/>}/>
+            <Route exact path={'/eur'} render={()=> <LeftChild props={this.state.eur}/>}/>
+            <Route exact path={'/jpy'} render={()=> <LeftChild props={this.state.jpy}/>}/>
+            <Route exact path={'/gbr'} render={()=> <LeftChild props={this.state.gbp}/>}/>
             <RightChildComp load={() => this.loadData()}
               t={this.state.timer.toLocaleString()}
               subm={sbmCycle => this.setCycle(sbmCycle)}
