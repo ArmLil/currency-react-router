@@ -34,17 +34,13 @@ class App extends Component {
     cycle: 5*60*1000
   };
 
-componentWillMount = () => {
-  this.loadData();
-}
-
   componentDidMount = () => {
+    this.loadData();
     this.timerId();
   };
 
 
  setCycle = (sbmCycle)=> {
-   console.log(sbmCycle);
    this.setState({cycle: sbmCycle*'60000'});
    this.loadData();
  }
@@ -52,8 +48,7 @@ componentWillMount = () => {
 
  timerId = () => {
   setTimeout(this.cycleId = () => {
-  console.log(this.state.cycle);
-  this.loadData();
+  this.setState({ timer: new Date()});
   this.timerId = setTimeout(this.cycleId, this.state.cycle);
 }, this.state.cycle)};
 
@@ -71,7 +66,6 @@ componentWillMount = () => {
         jpy: fetchedJPY,
         gbp: fetchedGBP
       });
-      //console.log(this.state);
     } catch (e) {
       console.log(e);
     }
