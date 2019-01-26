@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -11,4 +12,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+=======
+  font-family: sans-serif;
+>>>>>>> 6c92420e4d1aab6d52d3d28d260202ae8d6e80d3
 }

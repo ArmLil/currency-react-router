@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
 import LeftChild from './components/LeftChild';
 import RightChildComp from './components/RightChildComp';
-// import './App.css';
 
 const initial = `
    display: flex;
